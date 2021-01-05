@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:51 by jsimelio      #+#    #+#                 */
-/*   Updated: 2020/12/14 19:36:21 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/05 21:32:26 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,31 @@
 int	get_next_line(int fd, char **line)
 {
 	int 	ret_value;
-	char	buff[BUFFER_SIZE + 1];
+	char	buffer[BUFFER_SIZE];
+	int		cut;
+	/* No need to declare another string here, just use *line later */
 
-	if ((fd < 0 || line == NULL || read(fd, buff, 0) < 0))
-		return (-1);
-	ret_value = read(fd, buff, BUFFER_SIZE);
-	if (ret_value)
+	/*	Safety checks */
+	// if ((fd < 0 || line == NULL || read(fd, buffer, 0) < 0))
+	// 	return (-1);
+	**line = 0;
+	// ret_value = read(fd, buffer, BUFFER_SIZE);
+	while (ret_value = read(fd, buffer, BUFFER_SIZE) == BUFFER_SIZE)
 	{
-		*line = ft_strdup(buff);
+		if (cut = ft_strchr_int != -1)
+		{
+			buffer[cut + 1]  = 0;
+			*line = ft_strjoin(*line, buffer);
+			return (1);
+		}
+		*line = ft_strjoin(*line, buffer);
 		line++;
-		return (1);
 	}
-	return (0);
+	if (ret_value == 0)
+	{
+		*line = ft_strjoin(*line, buffer);
+		return (0);
+	}
+	else
+		return (-1);
 }
