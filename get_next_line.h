@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:45 by jsimelio      #+#    #+#                 */
-/*   Updated: 2020/12/14 22:38:09 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/06 22:22:44 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_list
 }					t_list;
 
 int 	get_next_line(int fd, char **line);
-char	*ft_strchr(const char *s, int c);
+int		ft_strchr_int(const char *s, int c);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 char	*ft_strdup(const char *s1);

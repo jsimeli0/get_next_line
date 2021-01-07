@@ -6,11 +6,12 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 14:13:30 by jsimelio      #+#    #+#                 */
-/*   Updated: 2020/12/14 23:50:24 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/07 00:15:14 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
+#include <stdio.h>
 #include "get_next_line.h"
 #include "get_next_line.c"
 #include "get_next_line_utils.c"
@@ -33,10 +34,10 @@ void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, sizeof(char));
 }
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
 	int		fd;
-	char	*line;
+	char	*line = malloc(1000);
 
 	// if (argc == 1)
 	// 	fd = 0;
@@ -46,12 +47,16 @@ int	main(int argc, char *argv[])
 	// 	return (2);
 
 	// open is returning -1 for some reason.... 
-	fd = open("test.txt", O_RDONLY);
+
+
+	fd = open("test2", O_RDONLY);
+	if (fd == -1)
+		printf("errno = %d\n", errno);
 	while (get_next_line(fd, &line) == 1)
 	{
 		ft_putendl_fd(line, 1);
-		free(line);
 	}
 	close(fd);
+	free(line);
 	return (0);
 }

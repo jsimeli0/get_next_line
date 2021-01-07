@@ -6,13 +6,13 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:43 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/05 21:02:30 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/06 22:22:41 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		*ft_strchr_int(const char *s, int c)
+int		ft_strchr_int(const char *s, int c)
 {
 	int		counter;
 
