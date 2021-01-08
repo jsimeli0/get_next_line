@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:45 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/06 22:22:44 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/08 00:03:12 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ size_t	ft_strlcpy(char *dst, const char *src,
 		size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strjoin(char *line, char const *buffer);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

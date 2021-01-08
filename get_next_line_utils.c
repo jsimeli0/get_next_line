@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:43 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/06 22:22:41 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/08 00:05:15 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_strchr_int(const char *s, int c)
 {
 	int		counter;
 
-	counter = 0;
+	counter = 1;
 	while (*s)
 	{
 		if (*s == c)
@@ -138,4 +138,17 @@ size_t	ft_strlcpy(char *dst, const char *src,
 		dst[i] = '\0';
 	}
 	return (ft_strlen(src));
+}
+
+char	*ft_strdup(const char *s1)
+{
+	void	*memory;
+	int		strlen;
+
+	strlen = ft_strlen(s1) + 1;
+	memory = malloc(strlen * sizeof(char));
+	if (!memory)
+		return (NULL);
+	ft_memcpy(memory, s1, strlen);
+	return (memory);
 }

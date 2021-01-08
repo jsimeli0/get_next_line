@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 14:13:30 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/07 00:15:14 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/08 00:05:45 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	ft_putchar_fd(char c, int fd)
 
 int	main(void)
 {
-	int		fd;
-	char	*line = malloc(1000);
+	// int		fd;
+	// char	*line = malloc(1000);
 
 	// if (argc == 1)
 	// 	fd = 0;
@@ -49,14 +49,37 @@ int	main(void)
 	// open is returning -1 for some reason.... 
 
 
+	/* Jorge's old main */
+
+	// fd = open("test2", O_RDONLY);
+	// if (fd == -1)
+	// 	printf("errno = %d\n", errno);
+	// while (get_next_line(fd, &line) == 1)
+	// {
+	// 	ft_putendl_fd(line, 1);
+	// }
+	// close(fd);
+	// free(line);
+	// return (0);
+
+	/* Main Sim */
+	int		fd;
+	int		i;
+	char	*line;
+	int 	l = 1;
 	fd = open("test2", O_RDONLY);
-	if (fd == -1)
-		printf("errno = %d\n", errno);
-	while (get_next_line(fd, &line) == 1)
+	//fd = -1;
+	//fd = 0;
+	i = 1;
+	while (i > 0)
 	{
-		ft_putendl_fd(line, 1);
+		i = get_next_line(fd, &line);
+		printf("%i | %i | %s\n ", l, i, line);
+		free(line);
+		l++;
 	}
+	system("leaks a.out");
 	close(fd);
-	free(line);
 	return (0);
+
 }
