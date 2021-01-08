@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 14:13:30 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/08 00:05:45 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/08 15:43:08 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	main(void)
 		free(line);
 		l++;
 	}
-	system("leaks a.out");
+	// system("leaks a.out");
 	close(fd);
 	return (0);
 

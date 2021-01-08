@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:43 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/08 00:05:15 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/08 17:52:01 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,26 +74,28 @@ size_t	ft_strlen(const char *s)
 {
 	size_t i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i] != '\0')
 		i++;
 	return (i);
 }
 
-char	*ft_strjoin(char *line, char const *buffer)
+char	*ft_strjoin(char *buff_static, char const *buff_read)
 {
 	size_t		strlen;
 	char	*s3;
 
-	if (!line || !buffer)
+	if (!buff_static && !buff_read)
 		return (NULL);
-	strlen = ft_strlen(line) + ft_strlen(buffer);
+	strlen = ft_strlen(buff_static) + ft_strlen(buff_read);
 	s3 = malloc((strlen + 1) * sizeof(char));
 	if (!s3)
 		return (NULL);
-	ft_strlcpy(s3, line, ft_strlen(line) + 1);
-	ft_strlcat(s3, buffer, strlen + 1);
-	free(line);
+	ft_strlcpy(s3, buff_static, ft_strlen(buff_static) + 1);
+	ft_strlcat(s3, buff_read, strlen + 1);
+	free(buff_static);
 	return (s3);
 }
 
