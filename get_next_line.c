@@ -6,11 +6,57 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:51 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/09 00:53:06 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/09 01:26:18 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int		ft_strchr_int(const char *s, int c)
+{
+	int		counter;
+
+	counter = 1;
+	while (*s)
+	{
+		if (*s == c)
+			return (counter);
+		s++;
+		counter++;
+	}
+	return (-1);
+}
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	char	*dst_2;
+	char	*src_2;
+
+	dst_2 = (char*)dst;
+	src_2 = (char*)src;
+	if (n == 0 || dst == src)
+		return (dst);
+	while ((int)n)
+	{
+		*dst_2 = *src_2;
+		dst_2++;
+		src_2++;
+		n--;
+	}
+	return (dst);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
 
 /* Checks for a whole line in buff_static and saves it to *line */
 int	pop(char **buff_static, char **line)
@@ -36,10 +82,11 @@ int	get_next_line(int fd, char **line)
 	static char	*buff_static;
 	char		buff_read[BUFFER_SIZE + 1];
 
-	/* Safety checks */
-	// if ((fd < 0 || !line || read(fd, buffer, 0) < 0))
-	// 	return (-1);
-	/* Pop a line from buff_static - if available - and do a NULL-check */
+	if ((fd < 0 || !line || BUFFER_SIZE < 0))
+		return (-1);
+	if (buff_static)
+		if (pop(&buff_static, line))
+			return (1);
 	while ((read_return = read(fd, buff_read, BUFFER_SIZE)) > 0)
 	{
 		buff_read[BUFFER_SIZE] = 0;
@@ -55,38 +102,4 @@ int	get_next_line(int fd, char **line)
 		return (0);
 	}
 	return (-1);
-	
-	// if (read_return == BUFFER_SIZE)
-	// {
-	// 	get_next_line(fd, line);
-	// }
-	// else if (read_return == 0)
-	// {
-
-	// }	
-
-	// while ((read_return = read(fd, buffer, BUFFER_SIZE)) == BUFFER_SIZE)
-	// {
-	// 	if ((cut = ft_strchr_int(buffer, '\n')) != -1)
-	// 	{
-	// 		buffer[cut + 1]  = 0;
-	// 		*line = ft_strjoin(*line, buffer);
-	// 		return (1);
-	// 	}
-	// 	*line = ft_strjoin(*line, buffer);
-	// 	line++;
-	// }
-	// if (read_return == 0)
-	// {
-	// 	*line = ft_strjoin(*line, buffer);
-	// 	return (0);
-	// }
-	// else
-	// 	return (-1);
-
-	
-	
-	// *line = malloc(ft_strlen(save));
-
-
 }

@@ -6,45 +6,11 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:43 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/08 17:52:01 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/09 01:26:29 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-int		ft_strchr_int(const char *s, int c)
-{
-	int		counter;
-
-	counter = 1;
-	while (*s)
-	{
-		if (*s == c)
-			return (counter);
-		s++;
-		counter++;
-	}
-	return (-1);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	char	*dst_2;
-	char	*src_2;
-
-	dst_2 = (char*)dst;
-	src_2 = (char*)src;
-	if (n == 0 || dst == src)
-		return (dst);
-	while ((int)n)
-	{
-		*dst_2 = *src_2;
-		dst_2++;
-		src_2++;
-		n--;
-	}
-	return (dst);
-}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -68,18 +34,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_memcpy(s2, (s + start), len);
 	s2[len] = 0;
 	return (s2);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t i;
-
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
 }
 
 char	*ft_strjoin(char *buff_static, char const *buff_read)
