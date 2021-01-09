@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:51 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/09 01:26:18 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/09 23:38:49 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_strchr_int(const char *s, int c)
 {
 	int		counter;
 
-	counter = 1;
+	counter = 0;
 	while (*s)
 	{
 		if (*s == c)
@@ -70,7 +70,7 @@ int	pop(char **buff_static, char **line)
 		if (*line == NULL)
 			return (-1);
 		len = ft_strlen(*buff_static) - cut;
-		*buff_static = ft_substr(*buff_static, cut, len);
+		*buff_static = ft_substr(*buff_static, cut + 1, len);
 		return (1);
 	}
 	return (0);
@@ -89,7 +89,7 @@ int	get_next_line(int fd, char **line)
 			return (1);
 	while ((read_return = read(fd, buff_read, BUFFER_SIZE)) > 0)
 	{
-		buff_read[BUFFER_SIZE] = 0;
+		buff_read[read_return] = 0;
 		buff_static = ft_strjoin(buff_static, buff_read);
 		if (buff_static == NULL)
 			return (-1);

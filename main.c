@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 14:13:30 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/08 15:43:08 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/09 23:09:42 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(void)
 	int		i;
 	char	*line;
 	int 	l = 1;
-	fd = open("test2", O_RDONLY);
+	fd = open("1.txt", O_RDONLY);
 	//fd = -1;
 	//fd = 0;
 	i = 1;
