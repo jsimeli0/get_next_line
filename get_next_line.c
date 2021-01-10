@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:51 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/09 23:38:49 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/10 15:02:52 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ int		ft_strchr_int(const char *s, int c)
 {
 	int		counter;
 
+	if (c == '\0')
+	{
+		counter = ft_strlen(s);
+		return (counter);
+	}
 	counter = 0;
 	while (*s)
 	{
@@ -59,12 +64,12 @@ size_t	ft_strlen(const char *s)
 }
 
 /* Checks for a whole line in buff_static and saves it to *line */
-int	pop(char **buff_static, char **line)
+int	pop(char **buff_static, char **line, char c)
 {
 	int			cut;
 	int			len;
 
-	if ((cut = ft_strchr_int(*buff_static, '\n')) != -1)
+	if ((cut = ft_strchr_int(*buff_static, c)) != -1)
 	{
 		*line = ft_substr(*buff_static, 0, cut);
 		if (*line == NULL)
@@ -82,10 +87,11 @@ int	get_next_line(int fd, char **line)
 	static char	*buff_static;
 	char		buff_read[BUFFER_SIZE + 1];
 
+	buff_read[0] = 0;
 	if ((fd < 0 || !line || BUFFER_SIZE < 0))
 		return (-1);
 	if (buff_static)
-		if (pop(&buff_static, line))
+		if (pop(&buff_static, line, '\n'))
 			return (1);
 	while ((read_return = read(fd, buff_read, BUFFER_SIZE)) > 0)
 	{
@@ -93,12 +99,13 @@ int	get_next_line(int fd, char **line)
 		buff_static = ft_strjoin(buff_static, buff_read);
 		if (buff_static == NULL)
 			return (-1);
-		if (pop(&buff_static, line))
+		if (pop(&buff_static, line, '\n'))
 			return (1);
 	}
 	if (read_return == 0)
 	{
-		*line = ft_strdup("");
+		buff_static = ft_strjoin(buff_static, "");
+		pop(&buff_static, line, '\0');
 		return (0);
 	}
 	return (-1);

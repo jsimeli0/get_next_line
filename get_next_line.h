@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:45 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/09 23:37:13 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/10 15:29:32 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 
 #ifndef BUFFFER_SIZE
-# define BUFFER_SIZE 1024
+# define BUFFER_SIZE 5
 #endif
 
 typedef struct		s_list

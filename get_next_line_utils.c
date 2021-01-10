@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:43 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/09 12:30:49 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/10 15:06:06 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char	*ft_strjoin(char *buff_static, char const *buff_read)
 	s3 = malloc((strlen + 1) * sizeof(char));
 	if (!s3)
 		return (NULL);
+	s3[strlen] = 0;
 	ft_strlcpy(s3, buff_static, ft_strlen(buff_static) + 1);
 	ft_strlcat(s3, buff_read, strlen + 1);
 	free(buff_static);
