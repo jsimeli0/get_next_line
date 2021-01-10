@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 14:13:30 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/10 15:33:00 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/10 22:13:32 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(void)
 	int		i;
 	char	*line;
 	int 	l = 1;
-	fd = open("/Users/jsimelio/Codam/get_next_line_recover/test_file9", O_RDONLY);
+	fd = open("/Users/jsimelio/Codam/get_next_line/4.txt", O_RDONLY);
 	// fd = 0;
 	//fd = -1;
 	//fd = 0;
@@ -79,7 +79,7 @@ int	main(void)
 		free(line);
 		l++;
 	}
-	// system("leaks a.out");
+	system("leaks a.out");
 	close(fd);
 	return (0);
 
