@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:51 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/10 22:49:09 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/11 16:22:55 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int		pop(char **buff_static, char **line, char c)
 int		finish(char *buff_static, char **line)
 {
 	buff_static = ft_strjoin(buff_static, "");
+	if (buff_static == NULL)
+			return (-1);	
 	pop(&buff_static, line, '\0');
 	free(buff_static);
 	return (0);

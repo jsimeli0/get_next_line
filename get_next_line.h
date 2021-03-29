@@ -6,7 +6,7 @@
 /*   By: jsimelio <jsimelio@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 12:42:45 by jsimelio      #+#    #+#                 */
-/*   Updated: 2021/01/10 22:58:28 by jsimelio      ########   odam.nl         */
+/*   Updated: 2021/01/11 16:13:46 by jsimelio      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define GET_NEXT_LINE_H
 # include <stdlib.h>
 # include <unistd.h>
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 4
+#endif
 
 char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *buff_static, char const *buff_read);
